@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Best Museum</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="images/710216_art_512x512.png" type="image/png">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+</head>
+<body>
+	<div class="header" style="background-image: url(images/212536.jpg);" >
+		<div class="header_shadow">
+			
+		</div>
+
+		<div class="header_logo">
+			<h1>Mu<span>SE</span>um</h1>
+		</div>
+
+		<div class="header_menu">
+			<ul>
+				<li><a href="index.html">About us</a></li>
+				<li><a href="plan.html">Museum Plan</a></li>
+				<li><a href="Tickets.html">Tickets</a></li>
+				<li><a href="Expositions.html">Expositions</a></li>
+				<li><a href="contact.html">Contact us</a></li>
+			</ul>
+		</div>
+
+		<div class="header_location">
+			<h3>OUR LOCATION</h3>
+		</div>
+		<div class="email">
+			<form action="mail.php" method="post" target="_blank">
+				Your name<br>
+				<input type="text" name="cf_name" id="form_el" required="required"><br>
+				<br>Your e-mail<br>
+				<input type="text" name="cf_email" id="form_el" required="required"><br>
+				<br>Message<br>
+				<textarea name="cf_message" required="required"></textarea><br>
+				<input type="submit" value="Send" id="send" name="sen">
+				<input type="reset" value="Clear" id="reset">
+			</form>
+		</div>
+		<div id="map"></div>
+		
+	</div>
+	<script type="text/javascript">
+
+		var map;
+
+// Функция initMap которая отрисует карту на странице
+function initMap() {
+
+    // В переменной map создаем объект карты GoogleMaps и вешаем эту переменную на <div id="map"></div>
+    map = new google.maps.Map(document.getElementById('map'), {
+        // При создании объекта карты необходимо указать его свойства
+        // center - определяем точку на которой карта будет центрироваться
+        center: {lat: 48.004330, lng: 37.797556},
+        // zoom - определяет масштаб. 0 - видно всю платнеу. 18 - видно дома и улицы города.
+        zoom: 18,
+
+        // Добавляем свои стили для отображения карты
+        styles: [
+        {
+        	"featureType": "water",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#193341"
+        	}
+        	]
+        },
+        {
+        	"featureType": "landscape",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#2c5a71"
+        	}
+        	]
+        },
+        {
+        	"featureType": "road",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#29768a"
+        	},
+        	{
+        		"lightness": -37
+        	}
+        	]
+        },
+        {
+        	"featureType": "poi",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#406d80"
+        	}
+        	]
+        },
+        {
+        	"featureType": "transit",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#406d80"
+        	}
+        	]
+        },
+        {
+        	"elementType": "labels.text.stroke",
+        	"stylers": [
+        	{
+        		"visibility": "on"
+        	},
+        	{
+        		"color": "#3e606f"
+        	},
+        	{
+        		"weight": 2
+        	},
+        	{
+        		"gamma": 0.84
+        	}
+        	]
+        },
+        {
+        	"elementType": "labels.text.fill",
+        	"stylers": [
+        	{
+        		"color": "#ffffff"
+        	}
+        	]
+        },
+        {
+        	"featureType": "administrative",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"weight": 0.6
+        	},
+        	{
+        		"color": "#1a3541"
+        	}
+        	]
+        },
+        {
+        	"elementType": "labels.icon",
+        	"stylers": [
+        	{
+        		"visibility": "off"
+        	}
+        	]
+        },
+        {
+        	"featureType": "poi.park",
+        	"elementType": "geometry",
+        	"stylers": [
+        	{
+        		"color": "#2c5a71"
+        	}
+        	]
+        }
+        ]
+
+    });
+
+    // Создаем маркер на карте
+    var marker = new google.maps.Marker({
+
+        // Определяем позицию маркера
+        position: {lat: 48.004330, lng: 37.797556},
+
+        // Указываем на какой карте он должен появится. (На странице ведь может быть больше одной карты)
+        map: map,
+
+        // Пишем название маркера - появится если навести на него курсор и немного подождать
+        title: 'Наш маркер: Museum',
+
+        // Укажем свою иконку для маркера
+        icon: 'http://rightblog.ru/wp-content/uploads/2016/07/theatre_icon.png'
+    });
+
+    // Создаем наполнение для информационного окна
+    var contentString = '<div id="content">'+
+    '<div id="siteNotice">'+
+    '</div>'+
+    '<h1 id="firstHeading" class="firstHeading">Museum</h1>'+
+    '<div id="bodyContent">'+
+    '<p>Welcome to the best' +
+    ' Museum</p>'+
+    '<p>With a long history of decades upon decades and reputation and title of the biggest and oldest museum in the local area, this place is worth a visit.'+
+    '</p>'+
+    '</div>'+
+    '</div>';
+
+    // Создаем информационное окно
+    var infowindow = new google.maps.InfoWindow({
+    	content: contentString,
+    	maxWidth: 400
+    });
+
+    // Создаем прослушивание, по клику на маркер - открыть инфо-окно infowindow
+    marker.addListener('click', function() {
+    	infowindow.open(map, marker);
+    });
+
+}
+</script>
+</body>
+</html>
