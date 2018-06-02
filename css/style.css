@@ -469,3 +469,22 @@ p.prising-text {
 
 	}
 }
+
+
+@media (max-width: 675px) {
+	
+	.museum-home-title h1 {
+		font-size: 3em;
+
+	}
+
+	.museum-home-title h3 {
+		font-size: 2em;
+
+	}
+
+	.museum-home-title p {
+		font-size: 1em;
+
+	}
+}
