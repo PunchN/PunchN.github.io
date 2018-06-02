@@ -415,3 +415,57 @@ p.prising-text {
 
 	}
 }
+
+@media (max-width: 650px) {
+	
+	.museum-home-title h1 {
+		font-size: 6em;
+
+	}
+
+	.museum-home-title h3 {
+		font-size: 3em;
+
+	}
+
+	.museum-home-title p {
+		font-size: 1.5em;
+
+	}
+}
+
+@media (max-width: 450px) {
+	
+	.museum-home-title h1 {
+		font-size: 4em;
+
+	}
+
+	.museum-home-title h3 {
+		font-size: 2em;
+
+	}
+
+	.museum-home-title p {
+		font-size: 1.3em;
+
+	}
+}
+
+@media (max-width: 315px) {
+	
+	.museum-home-title h1 {
+		font-size: 3em;
+
+	}
+
+	.museum-home-title h3 {
+		font-size: 2em;
+
+	}
+
+	.museum-home-title p {
+		font-size: 1em;
+
+	}
+}
